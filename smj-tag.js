@@ -76,7 +76,10 @@ function lumos_analyzeAITraffic() {
       var utmSourceMatch = false;
       if (utmSource) {
         var lowerUtm = utmSource.toLowerCase();
-        utmSourceMatch = lowerUtm.indexOf("chatgpt") !== -1 || lowerUtm.indexOf("openai.") !== -1;
+        if(lowerUtm.indexOf("chatgpt") !== -1 || lowerUtm.indexOf("openai.") !== -1) {
+          ai_platform = 1;
+          utmSourceMatch = true;
+        }
       }
     } catch (e) {}
 
